@@ -1,0 +1,10 @@
+{
+  "name": "Caterly - Smart Catering OS",
+  "description": "AI-powered platform to scale catering businesses through smart menu optimization and proactive customer outreach.",
+  "requestFramePermissions": [
+    "camera"
+  ],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

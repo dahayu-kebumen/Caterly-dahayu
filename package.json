@@ -1,0 +1,59 @@
+{
+  "name": "caterly-smart-os",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "lint": "tsc --noEmit",
+    "server": "node electron/server.js",
+    "electron:dev": "concurrently \"vite\" \"wait-on http://localhost:3000 && electron electron/main.cjs\"",
+    "electron:build": "npm run build && electron-builder",
+    "build:exe": "npm run build && electron-builder --win portable"
+  },
+  "build": {
+    "appId": "com.caterly.smartos",
+    "productName": "Caterly Smart OS",
+    "directories": {
+      "output": "dist-electron"
+    },
+    "extraMetadata": {
+      "main": "electron/main.cjs"
+    },
+    "files": [
+      "dist/**/*",
+      "electron/**/*",
+      "package.json"
+    ],
+    "win": {
+      "target": "portable",
+      "icon": "public/icon.ico"
+    }
+  },
+  "dependencies": {
+    "@google/genai": "^1.39.0",
+    "concurrently": "^8.2.1",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "firebase": "^12.19.0",
+    "lucide-react": "^0.463.0",
+    "mysql2": "^3.6.1",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "recharts": "^2.13.0",
+    "wait-on": "^9.0.4"
+  },
+  "devDependencies": {
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "@vitejs/plugin-react": "^4.3.4",
+    "electron": "^40.6.1",
+    "electron-builder": "^26.8.1",
+    "electron-is-dev": "^3.0.1",
+    "typescript": "^5.6.0",
+    "vite": "^6.0.0"
+  }
+}
